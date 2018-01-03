@@ -30,12 +30,8 @@
     ),
     'cache' =>
     array (
-      'class' => 'yii\\redis\\Cache',
-      'redis' => array(
-        'hostname' => '%%HUMHUB_REDIS_HOST%%',
-        'port' => 6379,
-        'database' => 0
-      ),
+      'class' => 'yii\\caching\\FileCache',
+      'keyPrefix' => 'humhub',
     ),
     'view' =>
     array (
