@@ -11,7 +11,7 @@ wait_for_db () {
     return 0
   fi
 
-  until nc -z -v -w30 $DB_HOSt 3306
+  until nc -z -v -w30 $DB_HOST 3306
   do
     echo "Waiting for database connection..."
     # wait for 5 seconds before check again
@@ -51,8 +51,8 @@ else
   echo "Writing config file..."
   sed -e "s/%%HUMHUB_DB_USER%%/$HUMHUB_DB_USER/g" \
       -e "s/%%HUMHUB_DB_PASSWORD%%/$HUMHUB_DB_PASSWORD/g" \
-      -e "s/%%HUMHUB_DB_HOST%%/$HUMHUB_DB_HOST/g" \
-      -e "s/%%HUMHUB_REDIS_HOST%%/$HUMHUB_REDIS_HOST/g" \
+      -e "s/%%HUMHUB_DB_HOST%%/$DB_HOST/g" \
+      -e "s/%%HUMHUB_REDIS_HOST%%/$REDIS_HOST/g" \
     /usr/src/humhub/protected/config/dynamic.php.tpl > /var/www/localhost/htdocs/protected/config/dynamic.php
   
   echo "Setting permissions..."
