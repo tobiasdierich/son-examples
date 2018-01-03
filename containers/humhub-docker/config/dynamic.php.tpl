@@ -4,7 +4,7 @@
     'db' =>
     array (
       'class' => 'yii\\db\\Connection',
-      'dsn' => 'mysql:host=db;dbname=humhub',
+      'dsn' => 'mysql:host=db.default.svc.cluster.local;dbname=humhub',
       'username' => '%%HUMHUB_DB_USER%%',
       'password' => '%%HUMHUB_DB_PASSWORD%%',
       'charset' => 'utf8',
@@ -30,8 +30,12 @@
     ),
     'cache' =>
     array (
-      'class' => 'yii\\caching\\FileCache',
-      'keyPrefix' => 'humhub',
+      'class' => 'yii\\redis\\Cache',
+      'redis' => array(
+        'hostname' => 'redis.default.svc.cluster.local',
+        'port' => 6379,
+        'database' => 0
+      ),
     ),
     'view' =>
     array (
