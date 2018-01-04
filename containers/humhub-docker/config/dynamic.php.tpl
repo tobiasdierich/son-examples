@@ -9,13 +9,6 @@
       'password' => '%%HUMHUB_DB_PASSWORD%%',
       'charset' => 'utf8',
     ),
-    'redis' => 
-    array(
-      'class' => 'yii\\redis\\Connection',
-      'hostname' => '%%HUMHUB_REDIS_HOST%%',
-      'port' => 6379,
-      'database' => 0,
-    ),
     'user' =>
     array (
     ),
@@ -38,6 +31,12 @@
     'cache' =>
     array (
       'class' => 'yii\\redis\\Cache',
+      'redis' => 
+      array(
+        'hostname' => '%%HUMHUB_REDIS_HOST%%',
+        'port' => 6379,
+        'database' => 0,
+      ),
     ),
     'view' =>
     array (
