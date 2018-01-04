@@ -1,0 +1,11 @@
+---
+descriptor_version: '1.0'
+vendor: eu.sonata-nfv.service-descriptor
+name: image-serving
+version: '0.1'
+author: Tobias Dierich
+cloud_services:
+- service_id: static-images
+  service_vendor: eu.sonata-nfv.cloud-service-descriptor
+  service_name: static-images
+  service_version: '1.0'
