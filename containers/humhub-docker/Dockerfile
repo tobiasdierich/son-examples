@@ -56,6 +56,7 @@ RUN cd /usr/src/humhub && \
     composer global require hirak/prestissimo && \
     composer global require "fxp/composer-asset-plugin:~1.4.2" && \
     composer install --no-ansi --no-dev --no-interaction --no-progress --no-scripts --optimize-autoloader && \
+    composer require yiisoft/yii2-redis && \
     chmod +x protected/yii && \
     chmod +x protected/yii.bat
 

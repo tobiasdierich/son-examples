@@ -9,6 +9,13 @@
       'password' => '%%HUMHUB_DB_PASSWORD%%',
       'charset' => 'utf8',
     ),
+    'redis' => 
+    array(
+      'class' => 'yii\\redis\\Connection',
+      'hostname' => '%%HUMHUB_REDIS_HOST%%',
+      'port' => 6379,
+      'database' => 0,
+    ),
     'user' =>
     array (
     ),
@@ -30,8 +37,7 @@
     ),
     'cache' =>
     array (
-      'class' => 'yii\\caching\\FileCache',
-      'keyPrefix' => 'humhub',
+      'class' => 'yii\\redis\\Cache',
     ),
     'view' =>
     array (
