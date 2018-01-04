@@ -19,11 +19,21 @@ wait_for_db () {
   done
 }
 
+wait_for_redis() {
+  until nc -z -v -w30 $REDIS_HOST 6379
+  do
+    echo "Waiting for redis connection..."
+    # wait for 5 seconds before check again
+    sleep 5
+  done
+}
+
 echo "=="
 if [ -f "/var/www/localhost/htdocs/protected/config/dynamic.php" ]; then
   echo "Existing installation found!"
   
   wait_for_db
+  wait_for_redis
   
   INSTALL_VERSION=`cat /var/www/localhost/htdocs/protected/config/.version`
   SOURCE_VERSION=`cat /usr/src/humhub/.version`
@@ -61,6 +71,7 @@ else
   chown -R nginx:nginx /var/www/localhost/htdocs/protected/config
   
   wait_for_db
+  wait_for_redis
   
   echo "Creating database..."
   cd /var/www/localhost/htdocs/protected/
