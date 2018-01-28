@@ -9,7 +9,7 @@ description: "HumHub Social Network."
 cloud_services:
 - service_id: "social-network"
   service_vendor: "eu.sonata-nfv.cloud-service-descriptor"
-  service_name: "social-netwrork"
+  service_name: "social-network"
   service_version: "1.0"
 
 network_functions:

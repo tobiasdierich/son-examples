@@ -14,21 +14,21 @@ virtual_deployment_units:
     cpu:
       vcpus: 1
     memory:
-      size: 2
+      size: 1
       size_unit: "GB"
     storage:
-      size: 15
+      size: 10
       size_unit: "GB"
   connection_points:
   - id: "eth0"
     interface: "ipv4"
-    type: "management"
+    type: "internal"
   - id: "eth1"
     interface: "ipv4"
-    type: "external"
+    type: "interal"
   - id: "eth2"
     interface: "ipv4"
-    type: "external"
+    type: "internal"
 
 virtual_links:
   - id: "mgmt"
